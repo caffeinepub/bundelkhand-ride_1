@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('/assets/fonts/Figtree.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('/assets/fonts/BricolageGrotesque.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark theme - Yellow & Black */
+    --background: 0.1 0 0;
+    --foreground: 0.96 0.005 90;
+    --card: 0.14 0 0;
+    --card-foreground: 0.96 0.005 90;
+    --popover: 0.14 0 0;
+    --popover-foreground: 0.96 0.005 90;
+    --primary: 0.87 0.18 90;
+    --primary-foreground: 0.1 0 0;
+    --secondary: 0.2 0.005 90;
+    --secondary-foreground: 0.9 0.005 90;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.55 0.01 90;
+    --accent: 0.87 0.18 90;
+    --accent-foreground: 0.1 0 0;
+    --destructive: 0.6 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.22 0.005 90;
+    --input: 0.18 0.005 90;
+    --ring: 0.87 0.18 90;
+    --radius: 0.75rem;
+    --chart-1: 0.87 0.18 90;
+    --chart-2: 0.65 0.15 160;
+    --chart-3: 0.6 0.2 27;
+    --chart-4: 0.7 0.15 250;
+    --chart-5: 0.75 0.12 320;
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 0.9 0.005 90;
+    --sidebar-primary: 0.87 0.18 90;
+    --sidebar-primary-foreground: 0.1 0 0;
+    --sidebar-accent: 0.18 0.005 90;
+    --sidebar-accent-foreground: 0.9 0.005 90;
+    --sidebar-border: 0.22 0.005 90;
+    --sidebar-ring: 0.87 0.18 90;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+/* Mobile frame */
+.phone-frame {
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scrollbar hide */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Status bar simulation */
+.status-bar {
+  height: env(safe-area-inset-top, 0px);
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.sos-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: oklch(0.6 0.22 27 / 0.4);
+  animation: pulse-ring 1.2s ease-out infinite;
+}
+
+@keyframes ride-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.star-filled { color: oklch(0.87 0.18 90); }
+.star-empty { color: oklch(0.3 0 0); }
